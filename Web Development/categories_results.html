@@ -1,0 +1,72 @@
+{% extends 'search/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}{{ parent_category }}/{{ category.title }}{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search/categories_results.css' %}">
+{% endblock %}
+{% block content %}
+	
+	<div class = 'content-wrapper', id="content-wrapper">
+		<div id= 'hidden-div'></div>
+	</div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
+	<script src="{% static 'js/categories_results.js' %}"></script>
+    <a href="{% url 'search:categories' %}"><p class="sub-cat">{{ sub_cat }}</p></a>
+    <div class="search">
+        {% crispy form form.helper %}
+    </div>
+
+    <div class="main-container" id="main-container">
+
+        <div class="filters" id="filters">
+            <button id="filter-btn" class="btn" type="button" data-toggle="collapse" data-target="#options">Filters &blacktriangledown;</button>
+            <div class="collapse" id="options">
+                {% crispy filter filter.helper %}
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            {% for product in products %}
+                <div class="product{{ product.error_classes }}">
+
+                    <a href="{{ product.url }}">
+                    <img class="image" src="{{ product.image }}">
+                    </a>
+
+                    <div class="details">
+                        <div class="top">
+                            <div class="title">
+                                <h1>{{ product.title }}</h1>
+                                <img class="heart" src="{% static 'images/heart.svg' %}">
+                            </div>
+
+                            <div class="ratings">
+                                <img src="../../static/images/stars-{{ product.rating }}.svg" alt="Rating not found">
+                                <p>{{ product.rating_count }}</p>
+                            </div>
+                        </div>
+
+                        <div class="bottom">
+                            <img class="site" src="../../static/images/{{ product.site }}.png">
+                            <div class="price-div">
+                                <div class="price-stat">
+                                    <img class="question" id="q" src="{% static "images/question-mark.svg" %}">
+                                    <img src="{% static "images/Down Arrow.svg" %}">
+                                    <img class="price-drop-info" src="{% static "images/infobox-price-drop.svg" %}">
+                                    <p>{{ product.stat }}</p>
+                                </div>
+                                <h1 class="price">{{ product.price }}</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+<script src="{% static 'js/results.js' %}"></script>
+
+{% endblock %}

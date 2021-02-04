@@ -1,0 +1,19 @@
+{% extends 'search/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'search/blog_detail.css' %}">
+{% endblock %}
+{% block content %}
+	<div class = 'blog-wrapper-outer'>
+		<h1>{{ blog.title }}</h1>
+		<h3>{{ blog.subtitle }}</h3>
+		<img src="{{ blog.image.url }}" class = 'main-image' alt="Main Blog Image">
+		<div class = 'blog-wrapper-inner'>
+			{% autoescape off %}
+			{{ blog.content }}
+			{% endautoescape %}
+		</div>
+	</div>
+{% endblock %}

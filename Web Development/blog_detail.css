@@ -1,0 +1,340 @@
+.content {
+	display: flex;
+	justify-content: center;
+}
+
+
+.blog-wrapper-outer {
+	margin-bottom: 50px;
+	margin-top: 50px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	width:80vw;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 100px;
+	
+}
+
+.blog-wrapper-inner {
+	width: 50vw;
+	padding-bottom: 50px;
+}
+
+
+.main-image {
+	width: 60vw;
+	display: flex;
+	align-items: center;
+	margin-top: 55px;
+	margin-bottom: 55px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+}
+
+
+h1 {
+	text-align: center;
+	padding-bottom: 0px;
+	padding-top: 40px;
+	margin-bottom: 50px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 62px;
+	color: #00A99D;
+	width: 70vw;
+	border-bottom: 5px solid #00A99D;
+
+}
+
+
+h3 {
+	width:53vw;	
+	font-family: Roboto;
+	font-weight: normal;
+	display: flex;
+	font-size: 24px
+	margin-bottom: 10px;
+}
+
+
+h2 {
+	margin-bottom: 10px;
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 34px;
+	display: flex;
+	align-items: center;
+	
+}
+
+.general-image{
+	width:50vw;
+	margin-bottom: 25px;
+	margin-top: 15px;
+
+}
+
+figure {
+	margin-top: 35px;
+	margin-bottom: 55px;
+	vertical-align: middle;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+figcaption {
+	text-align: center;
+	margin-top: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-family: Roboto;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 28px;
+	display: inline;
+	color: black;
+
+}
+
+figcaption a {
+	margin-left: 5px;
+
+	text-align: center;
+}
+
+
+h2 {
+	padding-top: 50px;
+}
+
+p {
+	font-family: Roboto;
+	font-weight: 550;
+	font-size: 28px;
+	line-height: 34px;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+		
+}
+
+
+iframe {
+	margin-bottom: 55px;
+	margin-top: 45px;
+	width: 50vw;
+
+}
+
+
+.para-bold {
+	font-weight: bold;
+}
+
+.para-italics {
+	font-style: italic;
+}
+
+
+
+.blog-li {
+	font-family: Roboto;
+	font-size: 24px;
+	line-height: 28px;
+	padding: 10px;
+
+}
+
+.blog-li  a {
+	text-decoration: underline;
+	color: black;
+	font-weight: normal;
+
+}
+
+
+a:link {
+    text-decoration: underline;
+    color:black;
+}
+
+a:visited {
+    text-decoration: underline;
+    color:black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color:black;
+}
+
+a:active {
+	text-decoration: underline;
+    color:black;
+}
+
+
+
+
+
+p a:link {
+    text-decoration: underline;
+    color:black;
+}
+
+p a:visited {
+    text-decoration: underline;
+    color:black;
+}
+
+p a:hover {
+    text-decoration: underline;
+    color:black;
+}
+
+p a:active {
+    text-decoration: underline;
+    color:black;
+}
+
+body {
+	font-weight: 500;
+}
+
+
+@media only screen and (max-width: 780px){
+
+	.content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 30px;
+		line-height: 40px;
+	}
+
+	.main-image {
+		width: 75vw;
+
+	}
+
+
+	h3 {
+		width:95%;
+		font-size: 22px;
+		line-height: 30px;
+		margin-left: 10px;
+		margin-right: 10px;
+		text-align: center;
+	}
+
+
+
+	.blog-wrapper-outer {
+		margin-bottom: 50px;
+		margin-top: 50px;
+		background: #FFFFFF;
+		box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+		border-radius: 10px;
+		width:90vw;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		
+	}
+
+	.blog-wrapper-inner {
+		width: 85vw;
+		padding-bottom: 50px;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+
+
+
+
+
+	p a {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 20px;
+
+
+	}
+
+
+
+	p {
+
+		font-size: 16px;
+		line-height: 20px;
+
+	}
+
+	.blog-li {
+		margin-left: 15px;
+		font-family: Roboto;
+		font-size: 16px;
+		line-height: 20px;
+
+	}
+
+
+	h2 {
+		font-size: 24px;
+		line-height: 30px;
+		padding-top: 25px;
+	}
+
+
+
+
+	figcaption {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	figcaption a {
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+
+
+	.general-image {
+		width: 75vw;
+		vertical-align: middle;
+	}
+
+
+	iframe {
+		width:85vw;
+		height: 60vw;
+	}
+
+	li a {
+		font-size: 18px;
+		line-height: 24px;
+	}
+
+	ul {
+		padding-left: 8px;
+	}
+
+	}

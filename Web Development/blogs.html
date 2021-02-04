@@ -1,0 +1,50 @@
+{% extends 'search/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}The Saver's Blog{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'search/blogs.css' %}">
+{% endblock %}
+{% block content %}
+<body style = "background: url({% static 'images/about-us-back.svg' %}); 
+ background-repeat: no-repeat; background-position: center; background-size: cover;">
+	<h1 id = 'blog-header'>The Saver's Blog</h1>
+	<div class = 'content-wrapper'>
+		<div class = 'content-section'>
+			<a href="{% url 'search:blog_detail' blog_2.slug %}">
+				<div class = 'blog-container'>
+					<div class = 'blog-text-container'>
+						<h2 class = 'featured-blog-title'>{{ blog_2.title }}</h2></a>
+						
+						<h3>{{ blog_2.subtitle }}</h3>
+					</div>
+					<img src="{{ blog_2.image.url }}" class='blog-image' alt="Featured blog image">
+				</div>
+			</a>
+			<div class='video-container'>
+				<iframe width="560" height="315" src="{{ video.src }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<a href="{% url 'search:blog_detail' blog.slug %}">
+				<div class = 'blog-container'>
+					<div class = 'blog-text-container'>
+						<h2 class = 'featured-blog-title'>{{ blog.title }}</h2></a>
+						
+						<h3>{{ blog.subtitle }}</h3>
+					</div>
+					<img src="{{ blog.image.url }}" class='blog-image' alt="Featured blog image">
+				</div>
+			</a>
+		</div>
+
+		<div class = 'blog-list-container'>
+			<h2 id = 'blog-list-header'>More Blogs to Help You Save</h2>
+				<ul>
+					{% for blog_object in blog_title_list %}
+						<li><a href="{% url 'search:blog_detail' blog_object.slug %}" class = 'blog-title'>{{ blog_object.title }}</a></li>
+						
+					{% endfor %}
+				</ul>
+		</div>
+	</div>
+</body>
+{% endblock %}

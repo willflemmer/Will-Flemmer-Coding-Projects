@@ -1,0 +1,183 @@
+{% extends 'search/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Browse Products{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'search/categories.css' %}">
+{% endblock %}
+{% block content %}
+
+	<div class = 'cat-nav-container'>
+		<ul class="cat-nav">
+
+			{% for obj in l1_cats %}
+
+				<li id = '{{obj.nav_id}}' class = 'l1-nav'>{{obj.title}}  ></li>
+			{% endfor %}
+			{% for obj in l2_cats %}
+
+				<li id = '{{obj.nav_id}}' class = 'l2-nav'>{{obj.title}} ></li>
+			{% endfor %}
+
+		</ul>
+	</div>
+
+	<div class = 'transparent-block-top'></div>
+	<div class = 'content-wrapper'>
+		<ul class = 'first-level-cat-wrapper'>
+			{% for item in l1_cats %}
+				<li class = 'first-level-cat' id = "{{ item.html_id }}">{{ item.title }}</li>
+			{% endfor %}
+			<li class = 'first-level-cat'></li>
+		</ul>
+
+
+		<ul class = 'second-level-cat-wrapper' id = 'business_l2'>
+			{% for item in business_cats %}
+				<li id = '{{item.html_id}}_li'>
+					<a href = '{% url "search:categories_results" item.slug %}' id = '{{ item.html_id }}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'baby-and-childcare_l2'>
+			{% for item in baby_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'computing-and-networks_l2'>
+			{% for item in computing_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'books_l2'>
+			{% for item in books_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'hobbies_l2'>
+			{% for item in hobbies_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'mobile-phones-and-accessories_l2'>
+			{% for item in phones_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li><a class = 'second-level-cat'></a></li>
+			<li><a class = 'second-level-cat'></a></li>
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'home_l2'>
+			{% for item in home_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+
+		<ul class = 'second-level-cat-wrapper' id = 'sporting-products_l2'>
+			{% for item in sport_cats %}
+				<li id = '{{item.html_id}}_li'>
+					<a href = '{% url "search:categories_results" item.slug %}' id = '{{ item.html_id }}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'photography_l2'>
+			{% for item in photography_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'musical-instruments_l2'>
+			{% for item in music_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'games-and-consoles_l2'>
+			{% for item in games_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			{% for i in '0123456'|make_list %}
+    			<li><a class = 'second-level-cat'></a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'health-and-beauty_l2'>
+			{% for item in health_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'personal-electronics_l2'>
+			{% for item in personal_electronics_cats %}
+				<li><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'pet-supplies_l2'>
+			{% for item in pet_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li><a class = 'second-level-cat'></a></li>
+			<li><a class = 'second-level-cat'></a></li>
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'jewellery_l2'>
+			{% for item in jewellery_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+		<ul class = 'second-level-cat-wrapper' id = 'clothing-and-accessories_l2'>
+			{% for item in clothing_cats %}
+				<li id = '{{item.html_id}}_li'><a href="{% url 'search:categories_results' item.slug %}" id = '{{item.html_id}}' class = 'second-level-cat'>{{ item.title }}</a></li>
+			{% endfor %}
+			{% for i in '0123456'|make_list %}
+    			<li><a class = 'second-level-cat'></a></li>
+			{% endfor %}
+			<li class = 'second-level-cat'></li>
+		</ul>
+
+
+		<div class = 'transparent-block-bottom'></div>
+	</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" integrity="sha512-8Wy4KH0O+AuzjMm1w5QfZ5j5/y8Q/kcUktK9mPUVaUoBvh3QPUZB822W/vy7ULqri3yR8daH3F58+Y8Z08qzeg==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous"></script>
+		<script src="{% static 'js/categories.js' %}"></script>
+		{% for item in l2_cats %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+				  $("#{{ item.html_id }}").click(function(){
+				    $('.l2-nav').hide();
+				    $('.second-level-cat').css('border-right-color', '#DCDCDC');
+				    $("#{{ item.nav_id }}").show();
+				    $("#{{ item.html_id }}_li").css("border-right-color", "#00A99D");
+				    $(tl.fromTo(all_cats, 1.5, {x: '0%'}, {x: '-80%'}, '-=0.2'));
+				    $(tl.fromTo(cat_nav, 3.5, {x: '0%'}, {x: '-15%'}, '-=3.2'));
+				    var href = $(this).attr('href');
+				    setTimeout(function() {window.location = href}, 500);
+				    return false;
+				  });
+				});		
+
+			</script>
+
+		{% endfor %}
+		{% for item in l1_cats %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+				  $("#{{item.html_id}}").click(function(){
+				    $('.l1-nav').hide();
+				    $('.l2-nav').hide();
+				    $('.second-level-cat-wrapper').hide();
+				    $('.first-level-cat').css('border-right-color', '#DCDCDC');
+				    $("#{{item.nav_id}}").show();
+				    $("#{{item.html_id}}_l2").show();
+				    $("#{{item.html_id}}").css("border-right-color", "#00A99D");
+				  });
+				});
+			</script>
+		{% endfor %}
+{% endblock %}
